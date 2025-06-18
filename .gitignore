@@ -1,0 +1,5 @@
+auth.json
+/docker/scripts/prompt-output.md
+supervisord.pid
+supervisord.log
+.env

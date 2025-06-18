@@ -1,0 +1,7 @@
+../../docker-compose.yml
+../../.env
+../../auth.json
+../../docker/nginx/magento.conf
+../../docker/supervisord.conf
+../../docker/Dockerfile
+../../docker/startup.sh
