@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Product Tags</title>
+        <meta name="description" content="View products by tag" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <!-- Block to display the tag name and related products -->
+            <block class="Strativ\ProductTags\Block\Tag\View" name="producttags.tag.view" template="Strativ_ProductTags::tag/view.phtml" />
+        </referenceContainer>
+        <!-- Add breadcrumbs -->
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Home</item>
+                    <item name="label" xsi:type="string">Home</item>
+                    <item name="link" xsi:type="string">{{baseUrl}}</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">tags</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Product Tags</item>
+                    <item name="label" xsi:type="string">Product Tags</item>
+                    <item name="link" xsi:type="string">{{baseUrl}}producttags</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">tag</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Tag</item>
+                    <item name="label" xsi:type="string">Tag</item>
+                </argument>
+            </action>
+        </referenceBlock>
+        <!-- Optionally include catalog left navigation -->
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Catalog\Block\Navigation" name="catalog.leftnav" template="Magento_Catalog::navigation/left.phtml" />
+        </referenceContainer>
+    </body>
+</page>

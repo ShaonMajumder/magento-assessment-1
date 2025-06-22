@@ -1,0 +1,12 @@
+.product-tags .tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: 5px 10px #333;
+    border-radius: 3px 3px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.product-tags .tag:hover {
+    background-color: #ddd;
+}

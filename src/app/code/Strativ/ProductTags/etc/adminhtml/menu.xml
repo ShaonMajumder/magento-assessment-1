@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- First-level menu item -->
+        <add id="Strativ_ProductTags::producttags" 
+             title="Product Tags" 
+             module="Strativ_ProductTags" 
+             sortOrder="50" 
+             resource="Strativ_ProductTags::producttags" />
+        
+        <!-- Submenu for managing tags -->
+        <add id="Strativ_ProductTags::manage_tags" 
+             title="Manage Tags" 
+             module="Strativ_ProductTags" 
+             sortOrder="10" 
+             action="producttags/tag/index" 
+             parent="Strativ_ProductTags::producttags" 
+             resource="Strativ_ProductTags::manage_tags" />
+        
+        <!-- Submenu for configuration (optional) -->
+        <add id="Strativ_ProductTags::configuration" 
+             title="Configuration" 
+             module="Strativ_ProductTags" 
+             sortOrder="20" 
+             action="adminhtml/system_config/edit/section/producttags" 
+             parent="Strativ_ProductTags::producttags" 
+             resource="Strativ_ProductTags::configuration" />
+    </menu>
+</config>

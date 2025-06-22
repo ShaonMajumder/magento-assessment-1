@@ -1,0 +1,23 @@
+{
+  "name": "strativ/product-tags",
+  "description": "A Magento 2 module for managing product tags.",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "require": {
+    "php": "~7.4.0||~8.0.0||~8.1.0",
+    "magento/framework": "^103.0.0",
+    "magento/module-catalog": "^104.0.0",
+    "magento/module-eav": "^102.0.0"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Strativ\\ProductTags\\": ""
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

@@ -3,3 +3,44 @@ auth.json
 supervisord.pid
 supervisord.log
 .env
+
+# Magento 2 Generated Files
+/src/generated/*
+/src/pub/static/*
+/src/var/*
+/src/app/etc/config.php
+/src/app/etc/env.php
+
+# Media Files
+/src/pub/media/*
+!/src/pub/media/.htaccess
+
+# Composer Files
+/src/vendor/*
+/src/composer.lock
+
+# IDE and Editor Files
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+*.code-workspace
+
+# OS and Temporary Files
+.DS_Store
+*.log
+*.bak
+*.swp
+*~
+.env
+
+# Build and Cache Files
+/src/cache/*
+/src/tmp/*
+/src/pub/static/adminhtml/*
+/src/pub/static/frontend/*
+/src/var/cache/*
+/src/var/log/*
+/src/var/page_cache/*
+/src/var/session/*
+/src/var/view_preprocessed/*
