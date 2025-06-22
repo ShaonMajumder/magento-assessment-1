@@ -1,17 +1,30 @@
-# Strativ_ProductTags Magento 2 Module
+# 🏷️ ProductTags Magento 2 Module
 
-Welcome to the **Strativ_ProductTags** module, a custom Magento 2 feature developed as part of a learning assignment to demonstrate PHP and OOP skills in a new framework. This module allows admin users to add comma-separated tags to products in the Magento admin panel and optionally display them on the frontend. Despite time constraints and initial unfamiliarity with Magento 2, this project showcases a journey of learning, problem-solving, and performance optimization.
+Welcome to the **ProductTags** module, a custom Magento 2 feature developed as part of a learning assignment to demonstrate PHP and OOP skills in a new framework. This module allows admin users to add comma-separated tags to products in the Magento admin panel and optionally display them on the frontend. Despite time constraints and initial unfamiliarity with Magento 2, this project showcases a journey of learning, problem-solving, and performance optimization.
 
-## The Environment Setup patience
+## ⚙️ The Environment Setup patience
 
-### The ideology behind the customized approach
+### 💡 The ideology behind the customized approach
 You suggested using the Magento Docker setup from Mark Shust:
  🔗 https://github.com/markshust/docker-magento
 
 But, I found in that repository, there are lot of overhead scripts, I have no idea. So I tried to taste the magento in my own style. So that, I can embrace magento in long run rather than, using it once for an assessment. So, this will make things faster in long run, for sure. With customized docker setup, I can speed things up. You can have the proof from my optimization for docker scripts `docker/` and `docker-compose.yml`. Here I also added `composer_cache` to speed things further.
 
-### Challenges before first view of Magento
-#### I. view is broken still
+### 🧱 Challenges before first view of Magento
+
+#### I. Autoload error
+`Autoload error`
+Vendor autoload is not found. Please run 'composer install' under application root directory.
+
+solve :
+```bash
+docker exec -it magento-app composer install
+########### using the cache
+docker exec -it magento-app composer install --no-interaction --prefer-dist 
+```
+
+
+#### II. 🧩 view is broken still
 
 Problem :
 ```txt
@@ -39,7 +52,7 @@ The result :
 
 admin url - http://localhost/admin_q2macny/
 
-#### II. Stopping 2 factor auth in development
+#### III. 🔒 Stopping 2 factor auth in development
 Disable via CLI (Recommended for Local Dev)
 Run this in your magento-app container:
 
@@ -63,13 +76,13 @@ php bin/magento setup:upgrade
 php bin/magento cache:flush
 ```
 
-#### III. Challenge in loading
+#### IV. 🐢 Magento is Slow Out of the Box
 this command `docker exec -it magento-app php bin/magento setup:di:compile` and  other commands, taking too much time to execute.
 I have understood magento 2 is too much slow out of the box.
 I am searching for how to reduce time, by caching or any other approach.
 
 
-##### III A. Developer mode skips many optimizations and is best for local development.
+##### IV A. Developer mode skips many optimizations and is best for local development.
 
 Set developer mode:
 
@@ -78,7 +91,7 @@ docker exec -it magento-app php bin/magento deploy:mode:set developer
 php bin/magento cache:enable
 ```
 
-##### III B. `Then tried to disable unnecessary modules.`
+##### IV B. `Then tried to disable unnecessary modules.`
 Ensure you’re in developer mode to avoid di:compile:
 
 ```bash
@@ -94,7 +107,7 @@ Then
 docker exec -it magento-app php bin/magento module:disable <module name>
 ```
 
-##### III C. Also thinking of enabling opcache in php.ini :
+##### IV C. Also thinking of enabling opcache in php.ini :
 ```ini
 opcache.enable=1
 opcache.memory_consumption=512
@@ -104,7 +117,7 @@ opcache.validate_timestamps=1
 opcache.revalidate_freq=0
 ```
 
-##### III D. Do not mount unecessary directory 
+##### IV D. Do not mount unecessary directory 
 
 set the volumes, dont mount generated cache folder
 ```yaml
@@ -139,18 +152,8 @@ php bin/magento cache:clean
 
 ```
 
-Really speeds up all the commands, which was previously frustrating. Horray 🎉 🥳
+🎉 🥳 Really speeds up all the commands, which was previously frustrating. Horray
 
-#### Other Challenges
-`Autoload error`
-Vendor autoload is not found. Please run 'composer install' under application root directory.
-
-solve :
-```bash
-docker exec -it magento-app composer install
-########### using the cache
-docker exec -it magento-app composer install --no-interaction --prefer-dist 
-```
 
 ### 🌟 Key Features - Customized docker setup
 
@@ -168,7 +171,6 @@ docker exec -it magento-app composer install --no-interaction --prefer-dist
 ✅ **Customizable startup** via `docker/startup.sh`  
 
 ---
-
 
 ## The Development Battle with limited time
 
